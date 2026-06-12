@@ -2,6 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "../include/colours.h"
 #include "../include/shell.h"
 #include "../include/parser.h"
 #include "../include/executor.h"
@@ -14,7 +15,7 @@ void start_shell() {
     while (1) {
         char cwd[1024];
         if (getcwd(cwd, sizeof(cwd)) != NULL) {
-            printf("%s> ", cwd);
+            printf(BLUE BOLD"%s " RESET  RED BOLD"> "RESET, cwd);
         } else {
             perror("getcwd");
             printf("$ ");
