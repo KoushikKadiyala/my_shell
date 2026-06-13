@@ -3,5 +3,7 @@
 
 void execute_simple_command(char *argv[]);
 void execute_pipe_command(char *argv[]);
+int parse_pipeline(char *argv[], char **commands[]);
+int launch_pipeline(char **commands[], int count);
 
 #endif

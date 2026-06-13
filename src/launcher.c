@@ -92,7 +92,7 @@ void launch_process(char *argv[])
 
     execvp(argv[0], argv);
 
-    perror("execvp");
+    perror("Command failed");
     _exit(1);
 }
 

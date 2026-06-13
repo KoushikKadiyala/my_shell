@@ -4,13 +4,14 @@ INCLUDES = -Iinclude
 SRC = src/main.c src/shell.c src/parser.c src/executor.c src/builtins.c
 OBJ = $(SRC:.c=.o)
 TARGET = mysh
+LIBS = -lreadline
 
 .PHONY: all clean distclean
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^ $(LIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
