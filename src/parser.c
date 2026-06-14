@@ -6,6 +6,7 @@ void parse_input(char *input, char *argv[]){
     char *token = strtok(input," ");
 
     while(token != NULL) {
+    
         argv[i]= token;
         i++;
         token = strtok(NULL," ");

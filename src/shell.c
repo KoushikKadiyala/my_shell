@@ -12,6 +12,7 @@
 #include "../include/parser.h"
 #include "../include/executor.h"
 #include "../include/builtins.h"
+#include "../include/environment.h"
 
 void start_shell()
 {
@@ -52,6 +53,7 @@ void start_shell()
         }
 
         parse_input(input, argv);
+        expand_variables(argv);
 
         if (argv[0] == NULL)
         {
@@ -71,7 +73,7 @@ void start_shell()
             free(input);
             continue;
         }
-
+       
         execute_command(argv);
 
         free(input);
