@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <signal.h>
 
 #include "../include/process.h"
 #include "../include/launcher.h"
@@ -20,6 +21,7 @@ void execute_simple_command(char *argv[])
 
     if (pid == 0)
     {
+        signal(SIGINT, SIG_DFL);
         launch_process(argv);
     }
 
@@ -60,6 +62,7 @@ int launch_pipeline(char **commands[], int count) {
         }
 
         if (pid == 0) {
+            signal(SIGINT, SIG_DFL);
             if (prev_read != -1) {
                 dup2(prev_read, STDIN_FILENO);
                 close(prev_read);

@@ -2,6 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <signal.h>
 
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -15,6 +16,8 @@
 void start_shell()
 {
     char *argv[64];
+
+    signal(SIGINT, SIG_IGN);
 
     while (1)
     {
