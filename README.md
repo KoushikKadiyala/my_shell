@@ -209,7 +209,7 @@ This Project helped me understand:
 ## Key Design Decisions
 
 - Modular architecture
- - Arbitrary-length pipeline implementation
+- Arbitrary-length pipeline implementation
 - Separation of parsing and execution
 - Dedicated launcher for child process setup
 
